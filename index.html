@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA ESTATE MANAGEMENT LTD.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-red: #d9232d;
+            --primary-white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --accent-gold: #c6a972;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+            header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/background.jpg') no-repeat center center/cover;
+            color: var(--primary-white);
+            padding: 1rem;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            background-color: rgba(217, 35, 45, 0.8);
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-red);
+            text-align: center;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 10px auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('images/main.jpg') no-repeat center center/cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mission, .vision {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--primary-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission h3, .vision h3 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Properties Section */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background-color: var(--primary-white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .property-image {
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .property-details {
+            padding: 1.5rem;
+        }
+
+        .property-details h3 {
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .property-details p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .property-price {
+            font-weight: bold;
+            color: var(--dark-gray);
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--primary-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary-red);
+        }
+
+        .map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--primary-white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--primary-white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Background Image -->
+    <header>
+       <section id="home">
+         <div class="logo-container">
+            <div class="logo">ALPHA <span>ESTATE</span> MANAGEMENT LTD.</div>
+            </div>
+           <div class="header-content">
+            <h1>Find Your Dream Property</h1>
+            <p class="tagline">Premium real estate services in the heart of Abuja</p>
+           
+            <div class="contact-info">
+                 <img src="images/logo.jpg" alt="Random image" width="200" height="120">
+            </div>
+            </div>
+        </section>
+       
+        
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <!-- REPLACE_WITH_LOGO_IMAGE: Replace the src with your logo image path -->
+            <div class="logo"><img src="images/logo.jpg" alt="Alpha Estate Management Ltd. Logo" width="60"></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>Who We Are</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Alpha Estate Management Limited is an innovative real estate company that offers a range of real estate services, including property sales, and more, to its esteemed customers in Abuja, the heart of Nigeria's vibrant capital.</p>
+                    <p>We are a premier real estate agency dedicated to turning your property dreams into a tangible reality. Whether you're searching for a serene family home in a secure estate, a strategic commercial property for your business, or a savvy investment opportunity in one of Africa's fastest-growing markets, we have affordable lands in Lugbe, ACO, Kuje and Idu. We have Plaza lands, Farm lands, Hospital Lands, Hotel lands, School lands, Estate lands and more. Kindly send a DM or chat on +234 8082924150 for more inquiries.  </p>
+                </div>
+                <div class="about-image"style="background-image: url('images/flyer.jpg');"></div>
+            </div>
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>To empower our clients by providing expert, personalized, and reliable real estate solutions that build wealth, create homes, and foster communities in Abuja. We are committed to being the most trusted and respected real estate brand in the region.</p>
+                </div>
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>To redefine the real estate experience in Abuja by setting the highest standard of service, innovation, and community development, contributing to the beautiful landscape of Nigeria's capital.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Section -->
+        <section id="properties">
+            <h2>Featured Properties</h2>
+            <div class="properties-grid">
+                <!-- Property 1 -->
+                <div class="property-card">
+                    <!-- REPLACE_WITH_PROPERTY_1_IMAGE: Replace the background-image URL with your property image -->
+                    <div class="property-image" style="background-image: url('images/background.jpg');"></div>
+                    <div class="property-details">
+                        <h3>Luxury Villa</h3>
+                        <p>Idu, Abuja</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card">
+                    <!-- REPLACE_WITH_PROPERTY_2_IMAGE: Replace the background-image URL with your property image -->
+                    <div class="property-image" style="background-image: url('images/two.jpg');"></div>
+                    <div class="property-details">
+                        <h3>Luxury Duplex</h3>
+                        <p>Idu, Abuja</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card">
+                    <!-- REPLACE_WITH_PROPERTY_3_IMAGE: Replace the background-image URL with your property image -->
+                    <div class="property-image" style="background-image: url('images/three.jpg');"></div>
+                    <div class="property-details">
+                        <h3>Executive Duplex</h3>
+                        <p>Idu, Abuja</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Property 4 -->
+                <div class="property-card">
+                    <!-- REPLACE_WITH_PROPERTY_4_IMAGE: Replace the background-image URL with your property image -->
+                    <div class="property-image" style="background-image: url('images/four.jpg');"></div>
+                    <div class="property-details">
+                        <h3>Terence Home</h3>
+                        <p>Idu, Abuja</p>
+                       
+                    </div>
+                </div>
+                <!-- Property 5 -->
+                   <div class="property-card">
+                      <!-- REPLACE_WITH_PROPERTY_4_IMAGE: Replace the background-image URL with your property image -->
+                      <div class="property-image" style="background-image: url('images/one.jpg');"></div>
+                     <div class="property-details">
+                        <h3>Terence Home</h3>
+                        <p>Idu, Abuja</p>
+                       
+                    </div>
+                </div>
+                 <!-- Property 6 -->
+                  <div class="property-card">
+                      <!-- REPLACE_WITH_PROPERTY_4_IMAGE: Replace the background-image URL with your property image -->
+                      <div class="property-image" style="background-image: url('images/five.jpg');"></div>
+                     <div class="property-details">
+                        <h3>Modern Apartment</h3>
+                        <p>Idu, Abuja</p>
+                       
+                    </div>
+            </div>
+        </section>
+
+        <!-- Additional Properties Section -->
+        <section>
+            <h2>Investment Opportunities</h2>
+            <div class="properties-grid">
+                <!-- Property 5 -->
+                <div class="property-card">
+                    <!-- REPLACE_WITH_PROPERTY_5_IMAGE: Replace the background-image URL with your property image -->
+                    <div class="property-image" style="background-image: url('images/invest.jpg');"></div>
+                    <div class="property-details">
+                        <h3>Estate Land at ACO</h3>
+                        
+                       
+                    </div>
+                </div>
+                
+                <!-- Property 6 -->
+                <div class="property-card">
+                    <!-- REPLACE_WITH_PROPERTY_6_IMAGE: Replace the background-image URL with your property image -->
+                    <div class="property-image" style="background-image: url('images/invest1.jpg');"></div>
+                    <div class="property-details">
+                        <h3>Estate Lands at Idu</h3>
+                      
+                        
+                    </div>
+                </div>
+                
+                <!-- Property 7 -->
+                <div class="property-card">
+                    <!-- REPLACE_WITH_PROPERTY_7_IMAGE: Replace the background-image URL with your property image -->
+                    <div class="property-image" style="background-image: url('images/invest2.jpg');"></div>
+                    <div class="property-details">
+                        <h3>Estate Lands at Idu</h3>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-phone"></i> +234 704 898 1896</p>
+                        <p><i class="fas fa-phone"></i> +2348082924150</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Eyis Filling Station, Directly Opposite Dunamis Church, Airport Road, Lugbe, FCT, Abuja.</p>
+                        <p><i class="fas fa-envelope"></i> sales@alphaestate.com</p>
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9am - 5pm</p>
+                    <p>Saturday: 10am - 4pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+                <div class="map">
+                    <!-- Google Map placeholder -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15717.16571409202!2d7.367119369775381!3d9.991799999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e737d2c28c58d%3A0x5f2d1c7b4b2d2b0!2sLugbe%2C%20Abuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1684577899999!5m2!1sen!2sng" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo"><img src="images/logo.jpg" alt="Alpha Estate Management Ltd. Logo" width="60"></div>
+        <div class="footer-content">
+             
+            <div class="logo">ALPHA <span>ESTATE</span> MANAGEMENT LTD.</div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2023 Alpha Estate Management Ltd. All rights reserved.</p>
+            <p>Designed by Nedrone Technologies  call us on +2348064144551</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for navigation smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add a class to navbar when scrolled
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
